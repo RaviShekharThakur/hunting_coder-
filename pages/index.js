@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import Blog from "./blog";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,20 +24,7 @@ export default function Home() {
             alt="Coding Image"
           />
 
-        <div className="blogs">
-          <div className="blogItem">
-            <h1>How do you do</h1>
-          </div>
-          <div className="blogItem">
-            <h1>How do you do</h1>
-          </div>
-          <div className="blogItem">
-            <h1>How do you do</h1>
-          </div>
-          <div className="blogItem">
-            <h1>How do you do</h1>
-          </div>
-        </div>
+        <Blog/>
 
       </main>
     </div>
