@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Blockquote } from 'flowbite-react';
 
 const slug = () => {
+    const [blog, setblog] = useState();
     const router = useRouter();
-    const {slug} = router.query;
+    useEffect(()=>{
+      if (!router.isReady) return;
+      const {slug} = router.query;
+      console.log(slug)
+      fetch(`http://localhost:3000/api/getblog?slug=${slug}`).then((a)=>{
+        return a.json();
+      })
+        .then((parsed)=>{
+          setblog(parsed) 
+      })
+    },[router.isReady])
+
   return (
     <Blockquote>
-      <h1 className='text-center'>title of the page {slug}</h1>
-      <p className='text-center mt-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto maxime officia ab laboriosam officiis est veritatis dolore nam, molestias aperiam ipsum explicabo quam!</p>
+      <h1 className='text-center'>{blog && blog.title}</h1>
+      <p className='text-center mt-10'>{blog && blog.content}</p>
     </Blockquote>
   )
 }
