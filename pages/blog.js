@@ -2,16 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Card } from 'flowbite-react';
 import Link from 'next/link';
 
-const Blog = () => {
-  const [blogs, setblogs] = useState([]);
-  useEffect(()=>{
-    console.log("it is runing")
-    fetch("http://localhost:3000/api/blogs").then((a)=>{
-      return a.json();})
-      .then((parsed)=>{
-        setblogs(parsed) 
-    })
-  },[])
+const Blog = (props) => {
+  console.log(props)
+  const [blogs, setblogs] = useState(props.allBlogs);
   
   return (
     <>
@@ -31,6 +24,15 @@ const Blog = () => {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  let data = await fetch("http://localhost:3000/api/blogs")
+  let allBlogs = await data.json()
+
+  return {
+    props: { allBlogs}
+  }
 }
 
 export default Blog
