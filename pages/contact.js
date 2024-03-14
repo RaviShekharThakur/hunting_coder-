@@ -51,35 +51,27 @@ const Contact = () => {
     }
   }
   return (
-    <form className="flex max-w-md flex-col gap-4" onSubmit={handleSubmit}>
-      <h1>Contact Us</h1>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="name" value="Enter your name" />
-        </div>
-        <TextInput id="name" name='name' type="text" sizing="md" value={name} onChange={handleChange} />
+    <form className="max-w-md mx-auto p-8 bg-white shadow-md rounded-md" onSubmit={handleSubmit}>
+      <h1 className="text-2xl font-bold mb-4 text-center">Contact Us</h1>
+      <div className="mb-4">
+        <Label htmlFor="name" value="Enter your name" />
+        <TextInput id="name" name="name" type="text" sizing="md" value={name} onChange={handleChange} placeholder="John Doe" />
       </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="email" value="Enter Email" />
-        </div>
-        <TextInput id="email" name='email' type="text" sizing="md" value={email} onChange={handleChange} />
+      <div className="mb-4">
+        <Label htmlFor="email" value="Enter Email" />
+        <TextInput id="email" name="email" type="email" sizing="md" value={email} onChange={handleChange} placeholder="example@example.com" />
       </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="phone" value="Enter your number" />
-        </div>
-        <TextInput id="phone" name='phone' type="text" sizing="md" value={phone} onChange={handleChange} />
+      <div className="mb-4">
+        <Label htmlFor="phone" value="Enter your number" />
+        <TextInput id="phone" name="phone" type="tel" sizing="md" value={phone} onChange={handleChange} placeholder="123-456-7890" />
       </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="desc" value="Enter your description" />
-        </div>
-        <Textarea id="desc" placeholder="Description" required rows={4} onChange={handleChange} name='desc' value={desc} />
+      <div className="mb-4">
+        <Label htmlFor="desc" value="Enter your description" />
+        <Textarea id="desc" name="desc" value={desc} onChange={handleChange} placeholder="Enter your message here" required rows={4} />
       </div>
-
-      <Button type="submit">Submit</Button>
+      <Button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</Button>
     </form>
+
   )
 }
 

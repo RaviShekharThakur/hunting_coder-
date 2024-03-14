@@ -23,9 +23,7 @@ export default function Home() {
             className="rounded-md mt-10 mb-10"
             alt="Coding Image"
           />
-
         <Blog/>
-
       </main>
     </div>
   );

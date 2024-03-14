@@ -17,7 +17,7 @@ const Blog = (props) => {
   
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center mt-20">
         {blogs.map((blogItem, index) => (
           <Link href={`/blogpost/${blogItem.slug}`}>
             <Card key={index} href="#" className="max-w-sm">
@@ -30,6 +30,7 @@ const Blog = (props) => {
             </Card>
           </Link>
         ))}
+
       </div>
     </>
   )
