@@ -16,7 +16,7 @@ const Blog = (props) => {
                 {blogItem.title}
               </h5>
               <p className="font-normal text-gray-700 dark:text-gray-400 text-center">
-                {blogItem.content.substr(0,140)}
+                {blogItem.metadesc.substr(0,140)}
               </p>
             </Card>
           </Link>
